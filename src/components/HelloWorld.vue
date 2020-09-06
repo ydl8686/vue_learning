@@ -25,7 +25,7 @@ export default {
   //data是一个函数，本页面需要的数据在return里面返回
   data(){
     return{
-      msg: 'hello,nju!',
+      // msg: 'hello,nju!',
       // 在文本中添加函数
       message: '8023'+new Date().toLocaleString(),
       // 只有字符串类型的需要加引号
@@ -35,15 +35,25 @@ export default {
         { text: '学习 Vue' },
         { text: '整个牛项目' }
       ],
-      messages: '蛤'
+      messages: '蛤',
     }
   },
+  props:[
+    'prop2',
+    'msg'
+  ],
   //methods本身不是一个方法，所以直接:和花括号
   methods:{
     //普通函数一般都是需要圆括号来接受参数的
     addElement(){
       //从methods里的方法来访问data里返回的数据需要使用this
       this.things.push({text: '新元素'})
+      //从父组件App里通过prop传来的prop2子组件可以接收到，但无法改变
+      this.prop2=!this.prop2
+      // eslint-disable-next-line no-console
+      console.log('从父组件里传来的')
+      // eslint-disable-next-line no-console
+      console.log(this.prop2)
     }
   }
 }
