@@ -19,6 +19,7 @@
     <button v-bind:disabled="isDisabled">disable是否动态,绑定的值可以使用完全的js表达式操作，看上面的字符串相加操作例子</button>
     <button @submit.prevent="onsubmit">句点运算符指出触发的事件应该以特殊的方式绑定，阻止组件默认事件发生</button>
     <computed></computed>
+    <render></render>
   </div>
 </template>
 
@@ -32,13 +33,15 @@ import HelloWorld from './components/HelloWorld.vue'
 import Test from './components/componentTest'
 import Prop from './components/componentTestAgain'
 import Computed from './components/computedTest'
+import Render from './components/renderTest'
 export default {
   name: 'app',
   components: {
     HelloWorld,
     Test,
     Prop,
-    Computed
+    Computed,
+    Render
   },
   data(){
     return{
